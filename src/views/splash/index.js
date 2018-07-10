@@ -12,33 +12,36 @@ import {
   Image,
   View,
   Text,
-  ActivityIndicator
- 
+  ActivityIndicator,
+  StatusBar
 } from 'react-native';
 
-import { Page } from '../../components';
+import { Page, Logo } from '../../components';
 
 type Props = {};
 export default class Splash extends Component<Props> {
 
- componentDidMount() {
+  componentWillMount() {
+    StatusBar.setHidden(true);
+  }
+
+  componentDidMount() {
+
     setTimeout(()=>{
       this.props.navigation.navigate('mainStack');
-    }, 1000);
+      StatusBar.setHidden(false);
+    }, 2500);
    
- }
+  }
 
  render() {
     return (
       <Page scrollEnabled={false}>
         <View style={styles.container} >
-            <Image
-              resizeMode="cover"
-              style={styles.image}
-              source={require('../../../ic_launcher.png')}/>
+            <Logo />
              <Text style={styles.text}> React Native ToolBox </Text>
-             <ActivityIndicator size="small" color="#00A3EC" />
          </View>
+
        </Page>
     );
   }
@@ -52,12 +55,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
   },
   text: {
-    marginBottom: 20,
-
+    marginTop: 250,
+    color: '#006292',
+    fontSize: 20
   }
  
 });

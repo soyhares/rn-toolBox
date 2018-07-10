@@ -73,12 +73,17 @@ const Animations = createBottomTabNavigator(
 
 const mainStack = createDrawerNavigator({
   home: {
+    screen: screen.Home,
+  },
+  about: {
     screen: screen.About,
   },
-  socialNetwork: {
+  ['social network']: {
     screen: screen.SocialNetwork,
   },
-  Animations: Animations,
+  cards: screen.SwipeCards,
+  ball: screen.Ball,
+  // Animations: Animations,
 });
 
 

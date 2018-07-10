@@ -1,31 +1,19 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { Icon } from 'react-native-elements'
+import { Icon, Header } from 'react-native-elements'
 
-const Header = ({ navigation }) => (
-  <View style={styles.header}>
-      <Icon
-        name='menu'
-        color='white'
-        onPress={()=>navigation.toggleDrawer()}/>
-
-  </View>
+const HeaderApp = ({ navigation }) => (
+  
+  <Header
+    placement="left"
+    leftComponent={{ icon: 'menu', color: '#fff', onPress: ()=>navigation.toggleDrawer() }}
+    centerComponent={{ text: navigation.state.routeName.toUpperCase(), style: { color: '#fff', fontWeight: 'bold' } }}
+    rightComponent={{ icon: 'info', color: '#fff', onPress: ()=>navigation.navigate('about') }}
+    backgroundColor='#006292'
+  />
 );
 
-export default Header;
+export default HeaderApp;
 
-const styles = StyleSheet.create({
-  
-  header: {
-    backgroundColor: '#006292', 
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 4,
-    borderTopWidth: 1,
-    height: 40,
-    borderTopColor: '#333333'
-  },
 
-});

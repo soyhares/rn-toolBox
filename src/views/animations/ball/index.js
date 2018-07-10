@@ -5,7 +5,9 @@ import Ball from '../components/Ball';
 import { Page } from '../../../components';
 
 export default class BallAnimation extends React.Component {
-
+  static navigationOptions = {
+    drawerLabel: 'Ball',
+  };
   render() {
     return (
       <Page navigation={this.props.navigation}>

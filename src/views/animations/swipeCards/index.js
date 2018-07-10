@@ -15,7 +15,9 @@ const DATA = [
 ];
 
 export default class Swipecards extends React.Component {
-
+  static navigationOptions = {
+    drawerLabel: 'Cards',
+  };
   renderCard(item) {
     return (
       <Card

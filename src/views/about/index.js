@@ -23,13 +23,8 @@ const dependencies = Object.keys(packagejson.dependencies);
 type Props = {};
 export default class About extends Component<Props> {
   static navigationOptions = {
-    drawerLabel: 'Home',
+    drawerLabel: 'About',
   };
-
-  componentDidMount() {
-    // this.props.navigation.openDrawer();
-    // this.props.navigation.toggleDrawer();
-  }
 
   renderItem({item}) {
     return (
@@ -46,7 +41,7 @@ export default class About extends Component<Props> {
 
  render() {
     return (
-      <Page footer navigation={this.props.navigation}>
+      <Page navigation={this.props.navigation}>
         <View style={styles.container}>
           <View style={styles.container}>
             <Text style={styles.welcome}>{`WELCOME TO REACT NATIVE ${packagejson.name.toUpperCase()}`}</Text>
@@ -54,7 +49,7 @@ export default class About extends Component<Props> {
             resizeMode="cover"
             style={styles.image}
             source={require('../../../ic_launcher.png')}/>
-            <Text style={styles.welcome}>{`These are the dependencies that this project is using now!`}</Text>
+            <Text style={styles.welcome}>{`These are the ${dependencies.length} dependencies that this project is using now!`}</Text>
           </View>
         </View>
         <View style={{ flex: 1, marginHorizontal: 8 }}>
